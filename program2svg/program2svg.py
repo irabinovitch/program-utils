@@ -115,7 +115,12 @@ def generate_svg(talks, rooms):
 
             y_coord = (start_minutes / 15) * cell_height_per_15min
             box_height = (talk_duration / 15) * cell_height_per_15min
-            talk_color = track_colors[talk['Topic']]
+            try:
+                talk_color = track_colors[talk['Topic']]
+            except:
+                print("ERROR: ", talk['Title'], "is missing track information. Defaulting to white for track color.")
+                talk_color=("#FFFFFF")
+                
 
             # Outer <g> for the entire cell
             svg_content += f'<g id="g{index + 1}" transform="translate({x_coord}, {y_coord})">\n'
