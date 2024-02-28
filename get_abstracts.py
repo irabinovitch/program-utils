@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import xmltodict
 import requests
 from html.parser import HTMLParser
@@ -18,7 +19,7 @@ def strip_tags(html):
     s.feed(html)
     return s.get_data()
 
-url='http://socallinuxexpo.org/scale/19x/sign.xml'
+url = 'https://www.socallinuxexpo.org/scale/21x/sign.xml?cache='
 schedule = requests.get(url).content
 
 doc = xmltodict.parse(schedule)
