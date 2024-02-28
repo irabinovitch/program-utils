@@ -38,4 +38,4 @@ for talk in doc['nodes']['node']:
         print(talk['Topic'])
     else:
         print("")
-    print(strip_tags(talk['Short-abstract']).strip())
+    print(strip_tags(talk['Short-abstract'].replace('\n', '')))
